@@ -4,6 +4,6 @@
   <title>Home</title>
 </head>
 <body>
-  Bazzar
+  <h1 style="text:align='enter';">Bazzar</h1>
 </body>
 </html>
