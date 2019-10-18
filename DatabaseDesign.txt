@@ -1,0 +1,56 @@
+Appendix A : Database Design
+
+
+ 
+	Customer
+* customerId: int
+  customerName: string
+  userName: string
+  password: string
+  address: string
+  accountType: string
+
+	seller
+* sellerId: int
+  sellerUserName: string
+  sellerPassword: string
+  sellerAddress: string
+  accountType: string
+  accountBalance: float
+
+	product
+* productId: int
+  productName: string
+  productUnitCost: float
+  sellerId: string
+  dateAdded: date
+  productRentPrice: float
+  productType: string
+
+	complain
+* complainId: int
+# customerId: int
+# productId: int
+  complainType: string
+  complainDetails: string
+
+	order
+* orderId: int
+# customerId: int
+# productId: int
+  dateOrdered: date
+  dateShipped: date
+  status: bool
+  
+	RentedProduct
+* rentId: int
+# productId: int
+# customerID:int
+# sellerID: int
+  rentDate: date
+  rentDuration: int
+  totalCost: float
+  creditCardNumber: int
+  creditCardName: string
+  creditCardExpirationDate: date
+ 
