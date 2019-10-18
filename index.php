@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
+  <title>Home Bazaar</title>
 </head>
 <body>
-  <h1 style="text-align: align:'enter';">Bazzar</h1>
+  <h1 style="text-align: align:'enter';">Hamro Bazzar</h1>
 </body>
 </html>
