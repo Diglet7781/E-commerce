@@ -9,7 +9,7 @@
 
 
   <h1 style="text-align: align:'enter';"> Bazzar</h1>
-  <h1> Shop healthy and happy </h1>
+  <h1> Shop healthy and happy..... </h1>
   
 </body>
 </html>
