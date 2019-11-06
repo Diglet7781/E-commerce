@@ -1,12 +1,12 @@
 <?php
 class User{
   //properties
-  private $firstName;
-  private $lastName;
-  private $email;
-  private $accountType;
-  private $userName;
-  private $password;
+  protected $firstName;
+  protected $lastName;
+  protected $email;
+  protected $accountType;
+  protected $userName;
+  protected $password;
 
   //methods
    public function __construct($firstName,$lastName,$email,$accountType, $userName,$password) {
