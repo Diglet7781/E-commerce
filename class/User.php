@@ -5,26 +5,41 @@ class User{
   private $lastName;
   private $email;
   private $accountType;
+  private $userName;
+  private $password;
 
   //methods
-   public function __construct($firstName,$lastName,$email,$accountType) {
+   public function __construct($firstName,$lastName,$email,$accountType, $userName,$password) {
     $this->firstName = $firstName;
     $this->lastName = $lastName;
     $this->email = $email;
     $this->accountType = $accountType;
+    $this->userName = $userName;
+    $this->password = $password;
   }
+
 
   //get name
   public function getName(){
-    $fName=$this.firstName ;
-    $lName=$this.lastName;
-    $fullName= $fName.$lName;
-    return $fullName; 
+    $fname= $this->firstName;
+    $lname= $this->lastName;
+    $fullName= $fname.$lname;
+    return $fullName;
   }
 
   //get email
-  public function getEmail(){
+  public function getemail(){
     return $this->email;
+  }
+
+  //get username
+  public function getusername(){
+    return $this->username;
+  }
+
+  //get password
+  public function getpassword(){
+    return $this->password;
   }
 
   //get accountType
