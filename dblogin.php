@@ -9,4 +9,16 @@ $connect= new mysqli($dbh,$dbu,$dbp,$dbname);
       die("connection failed :".$connect->connect_error);
   }
 
+
+
+  /*
+function createConn() { 
+    $dbu="root"; $dbp=""; $dbh="localhost"; $dbname="ecommerce";
+    return new mysqli($dbh,$dbu,$dbp,$dbname);
+
+    //$connect = createConn();
+}
+ //Username field: `;DELETE * FROM * WHERE 1
+
+*/
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once "../dblogin.php";
+require_once "dblogin.php";
 class User{
   //properties
   protected $firstName;
@@ -20,12 +20,18 @@ class User{
   }
 
 
-  //get name
-  public function getName(){
+  //get firstname
+  public function getfirstName(){
     $fname= $this->firstName;
+   
+    return $fname;
+  }
+
+  //get lastname
+  
+  public function getlastName(){
     $lname= $this->lastName;
-    $fullName= $fname.$lname;
-    return $fullName;
+    return $lname;
   }
 
   //get email
@@ -48,12 +54,19 @@ class User{
     return $this->accountType;
   }
 
-  //validate 
-  public function validateUserData(){
-    
-  }
+
   //createAccount
   public function createAccount(){
+    require_once "dblogin.php";
+    $firstName= $this->getfirstName();
+    $lastName=$this->getlastName();
+    $email=$this->getemail();
+    $userName=$this->getusername();
+    $password=password_hash($this->getpassword(),PASSWORD_DEFAULT);
+
+    $query="INSERT INTO `user`(`firstName`, `lastName`, `email`, `accountType`, `username`, `password`) 
+    VALUES ($firstName,$lastName,$email,$userName,$password)";
+    $connect=query($query);
     
   }
 
