@@ -1,4 +1,5 @@
 <?php
+require_once "../dblogin.php";
 class User{
   //properties
   protected $firstName;
@@ -46,6 +47,18 @@ class User{
   public function getaccountType(){
     return $this->accountType;
   }
+
+  //validate 
+  public function validateUserData(){
+    
+  }
+  //createAccount
+  public function createAccount(){
+    
+  }
+
+
+  
 
 }
 
