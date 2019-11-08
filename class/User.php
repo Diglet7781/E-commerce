@@ -1,6 +1,6 @@
 <?php
 require_once "dblogin.php";
-class User{
+class User {
   //properties
   protected $firstName;
   protected $lastName;
@@ -41,7 +41,7 @@ class User{
 
   //get username
   public function getusername(){
-    return $this->username;
+    return $this->userName;
   }
 
   //get password
@@ -57,17 +57,18 @@ class User{
 
   //createAccount
   public function createAccount(){
-    require_once "dblogin.php";
+    
     $firstName= $this->getfirstName();
     $lastName=$this->getlastName();
     $email=$this->getemail();
     $userName=$this->getusername();
+    $accountType=$this->getaccountType();
     $password=password_hash($this->getpassword(),PASSWORD_DEFAULT);
 
-    $query="INSERT INTO `user`(`firstName`, `lastName`, `email`, `accountType`, `username`, `password`) 
-    VALUES ($firstName,$lastName,$email,$userName,$password)";
-    $connect=query($query);
-    
+    $query="INSERT INTO user(firstName, lastName, email,accountType, username, password) 
+    VALUES ('$firstName','$lastName','$email','$accountType','$userName','$password')";
+   
+   return $query;
   }
 
 

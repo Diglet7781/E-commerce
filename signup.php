@@ -41,16 +41,17 @@ require_once "dblogin.php";
 //processing the form
 
 if (isset($_POST["submit"])){
-    $connect = createConn();
+    
 
     //get data from the user for Registration
-    $firstName = cleanVar(test_input($_POST["fname"]),$connect);
-    $lastName = cleanVar(test_input($_POST["lname"]),$connect);
-    $email = cleanVar(test_input($_POST["email"]),$connect);
-    $accountType = cleanVar(test_input($_POST["accountType"]),$connect);
-    $username = cleanVar(test_input($_POST["username"]),$connect);
+    $firstName = test_input($_POST["fname"]);
+    $lastName = test_input($_POST["lname"]);
+    $email = test_input($_POST["email"]);
+    $accountType = test_input($_POST["accountType"]);
+    $username = test_input($_POST["username"]);
     $password = test_input($_POST["password"]);
     $confirmPassword = test_input($_POST["confirm-password"]);
+    
     
 //validate user input fields with certain restrictions
     validate($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword); 
@@ -59,11 +60,16 @@ if (isset($_POST["submit"])){
     // after creating object push the data to the database abd registration sucessful
 
     //creaating user object once all the data are validated
+    //$connect=query($query);
     $user= new User($firstName,$lastName,$email,$accountType,$username,$password);
+    $connect = createConn();
+    $result=$connect->query($user->createAccount());
 
-    $user->createAccount();
-
-
+    if (!$result){
+        die($connect->error);
+    }
+    else
+        echo "Table build successful.";
 
 
 

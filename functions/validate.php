@@ -8,9 +8,11 @@ function validate($firstName,$lastName,$email,$accountType,$username,$password,$
 }
 
 //prevvents sql injection
+/*
 function cleanVar($variableToClean, $connectionToSQL) {
     return mysqli_real_escape_string($connectionToSQL, $variableToClean);
 }
+*/
 
 function test_input($data) {
     $data = trim($data);
