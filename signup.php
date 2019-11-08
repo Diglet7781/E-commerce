@@ -35,16 +35,20 @@
 
 
 require_once "functions/validate.php";
+require_once "class/User.php";
+require_once "dblogin.php";
 
 //processing the form
 
 if (isset($_POST["submit"])){
+    $connect = createConn();
+
     //get data from the user for Registration
-    $firstName = test_input($_POST["fname"]);
-    $lastName = test_input($_POST["lname"]);
-    $email = test_input($_POST["email"]);
-    $accountType = test_input($_POST["accountType"]);
-    $username = test_input($_POST["username"]);
+    $firstName = cleanVar(test_input($_POST["fname"]),$connect);
+    $lastName = cleanVar(test_input($_POST["lname"]),$connect);
+    $email = cleanVar(test_input($_POST["email"]),$connect);
+    $accountType = cleanVar(test_input($_POST["accountType"]),$connect);
+    $username = cleanVar(test_input($_POST["username"]),$connect);
     $password = test_input($_POST["password"]);
     $confirmPassword = test_input($_POST["confirm-password"]);
     
@@ -53,6 +57,15 @@ if (isset($_POST["submit"])){
 
     //after validation , create object if validation sucess , create object and pass values to the constructor 
     // after creating object push the data to the database abd registration sucessful
+
+    //creaating user object once all the data are validated
+    $user= new User($firstName,$lastName,$email,$accountType,$username,$password);
+
+    $user->createAccount();
+
+
+
+
 
 }
 
