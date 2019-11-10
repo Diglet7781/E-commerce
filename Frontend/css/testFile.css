@@ -11,13 +11,6 @@ width: 100%
 }
 
 
-.Button
-{
-    margin:20px;
-}
-
-
-
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
 body{
   font-family: 'Source Sans Pro', sans-serif;
@@ -82,7 +75,7 @@ height:100%;
   position:relative;
   top:0;
   left:0;
-	background:	#505050;
+	background:	#fff;
 }
 .footer #cont{
   position:relative;
@@ -115,7 +108,7 @@ height:100%;
   }
   
   .price {
-    color: red;
+    color: grey;
     font-size: 22px;
   }
   
@@ -152,4 +145,10 @@ height:100%;
     display: flex;
   }
 
+  .navbar {
+
+
+    padding-bottom: -2px;
+  }
+  
   
