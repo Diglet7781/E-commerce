@@ -7,10 +7,19 @@ function validate($firstName,$lastName,$email,$accountType,$username,$password,$
     }
 }
 
+
+
+
+
 //prevvents sql injection
+/*
 function cleanVar($variableToClean, $connectionToSQL) {
     return mysqli_real_escape_string($connectionToSQL, $variableToClean);
 }
+*/
+
+
+//this function test the input
 
 function test_input($data) {
     $data = trim($data);
@@ -19,9 +28,10 @@ function test_input($data) {
     return $data;
  }
 
+
  function createConn() { 
     $dbu="root"; $dbp=""; $dbh="localhost"; $dbname="ecommerce";
     return new mysqli($dbh,$dbu,$dbp,$dbname);
 
-    //$connect = createConn();
+   //$connect = createConn();
 }
