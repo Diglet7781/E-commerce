@@ -1,13 +1,16 @@
 .slideshow-container {
 
-width: 100%
+width: 100%;
+padding-bottom: 500px;
+object-fit: scale-down;
+
 
 }
 
 
 .card-container {
 
-    width: 100%;
+    width: 80%;
 }
 
 
@@ -150,5 +153,4 @@ height:100%;
 
     padding-bottom: -2px;
   }
-  
   
