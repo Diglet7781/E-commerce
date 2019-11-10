@@ -67,7 +67,7 @@ if (isset($_POST["submit"])){
     
     $user= new User($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword);
     //validate user input fields with certain restrictions
-    validate($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword); 
+    //validate($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword); 
     
 
     //after validation , create object if validation sucess , create object and pass values to the constructor 
