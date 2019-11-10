@@ -36,7 +36,7 @@
 
 require_once "functions/validate.php";
 
-//processing the form
+//processing the form // rajan is a gay
 
 if (isset($_POST["submit"])){
     //get data from the user for Registration
