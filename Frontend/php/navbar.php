@@ -1,70 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="smart">
-   <div class="container">
-      <div class="navbar-left">
-         <button class="navbar-toggler" type="button">&#9776;</button>
-         <a class="navbar-brand" href="">
-            <img class="logo-dark" src="../img/nav2.png" alt="logo"> 
-            <h2> BaZaar</h2>
-         </a>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" >
+   <div class="navbar-left">
+      <a class="navbar-brand" href="">
+      <img src="../img/nav2.png" width="80" height="80" class="logo-dark d-inline-block align-top" alt="logo"> 
+      </a>
+      <div class="navbar-brand mb-1 h4">
+         <h2> BaaZaar ... </h2>
       </div>
-      <section class="navbar-mobile">
-      <span class="navbar-divider d-mobile-none"></span>
-      <ul class="nav nav-navbar">
+   </div>
+   <h1>........</h1>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
          <li class="nav-item">
-            <a class="nav-link" href="#"> Home </a>
-            <ul class="nav">
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 1 </span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 2 </span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 3</span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#"> Option 4 </span></a>
-               </li>
-            </ul>
+            <a class="nav-link" href="#">Products <span class="sr-only">(current)</span></a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="#"> Home </a>
-            <ul class="nav">
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 1 </span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 2 </span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 3</span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#"> Option 4 </span></a>
-               </li>
-            </ul>
+            <a class="nav-link" href="#">Brands <span class="sr-only">(current)</span></a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="#"> Home </a>
-            <ul class="nav">
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 1 </span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 2 </span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Option 3</span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#"> Option 4 </span></a>
-               </li>
-            </ul>
+            <a class="nav-link " href="#" tabindex="-1" >Deals <span class="sr-only">(current)</span></a>
+            <!-- if needed we have to span more class into it -->
+         <li class="nav-item">
+            <a class="nav-link " href="#" tabindex="-1" >Services <span class="sr-only">(current)</span></a>
          </li>
       </ul>
-      <!--check-->
-      <a class="btn btn-xs btn-round btn-success" href="">Login</a>
-      <a class="btn btn-xs btn-round btn-success" href="">Signup</a>
+      <form class="form-inline my-2 my-lg-0">
+         <input class="form-control mr-sm-2" type="search" placeholder="Search">
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <div class = "button">
+         <button type="button" class="btn btn-danger">Get Started!</button>
+      </div>
+      <h1> ........................</h1>
    </div>
 </nav>
-
