@@ -11,6 +11,13 @@ width: 100%
 }
 
 
+.Button
+{
+    margin:20px;
+}
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
 body{
   font-family: 'Source Sans Pro', sans-serif;
@@ -108,7 +115,7 @@ height:100%;
   }
   
   .price {
-    color: grey;
+    color: red;
     font-size: 22px;
   }
   
