@@ -10,10 +10,10 @@
 <body>
     
     <form id="registrationForm" action="signup.php" method="post">
-        firstName:<input type="text" name="fname" placeholder="fname" id="firstName" oninput="firstName()">
+        firstName:<input type="text" name="fname" placeholder="fname" id="firstName" oninput="validatefirstname()">
         <span id="firstNameErr"></span>
         <br>
-        lastName:<input type="text" name="lname" placeholder="lname" oninput="lastName()">
+        lastName:<input type="text" name="lname" placeholder="lname" oninput="validatelastname()">
         <span id="lastNameErr"></span>
         <br>
         email:<input type="email" name="email" placeholder="email" oninput="email()">
@@ -33,9 +33,9 @@
         <br>
         <button name="submit" type="submit" >createAccount</button> 
        
-
+       
     </form>  
-    <script src="functions/registrationValidation.js"></script> 
+    <script type="text/javascript" src="functions/registrationValidation.js"></script> 
 </body>
 </html>
 
@@ -63,11 +63,11 @@ if (isset($_POST["submit"])){
     $confirmPassword = test_input($_POST["confirm-password"]);
 
     //validate input fields and verify
-
+    validate($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword); 
     
     $user= new User($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword);
     //validate user input fields with certain restrictions
-    //validate($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword); 
+   
     
 
     //after validation , create object if validation sucess , create object and pass values to the constructor 
