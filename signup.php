@@ -4,28 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
     <title>Signup</title>
 </head>
 <body>
     
-    <form action="signup.php" method="post">
-        firstName:<input type="text" name="fname" placeholder="fname">
+    <form id="registrationForm" action="signup.php" method="post">
+        firstName:<input type="text" name="fname" placeholder="fname" id="firstName" oninput="validatefirstname()">
+        <span id="firstNameErr"></span>
         <br>
-        lastName:<input type="text" name="lname" placeholder="lname">
+        lastName:<input type="text" name="lname" placeholder="lname" oninput="validatelastname()">
+        <span id="lastNameErr"></span>
         <br>
         email:<input type="email" name="email" placeholder="email">
+        <span id="emailErr"></span>
         <br>
-        accountType:<input type="text" name="accountType" placeholder="buyer/seller">
+        Account type:
         <br>
-        username:<input type="text" name="username" placeholder="username">
+        Buyer:<input type="radio" name="accounttype" placeholder="buyer"id="buyer" onclick="valideAccountBS()">
+        Seller:<input type="radio" name="accounttype" placeholder="seller" id="seller"onclick="valideAccountBS()">
+        <span id="selectErr"></span>
         <br>
-        password:<input type="password" name="password" placeholder="password">
+        username:<input type="text" name="username" placeholder="username" oninput="username()">
+        <span id="username"><span>
         <br>
-        confirm-password:<input type="password" name="confirm-password" placeholder="confirm-password">
+        password:<input type="password" name="password" placeholder="password" oninput="password()">
+        <span id="password"><span>
         <br>
-        <button name="submit" type="submit">createAccount</button> 
-
-    </form>   
+        confirm-password:<input type="password" name="confirm-password" placeholder="confirm-password" oninput="confirmpassword()">
+        <span id="confirmpassword"><span>
+        <br>
+        <button name="submit" type="submit" >createAccount</button> 
+       
+       
+    </form>  
+    <script type="text/javascript" src="functions/registrationValidation.js"></script> 
 </body>
 </html>
 
@@ -35,10 +48,14 @@
 
 
 require_once "functions/validate.php";
+require_once "class/User.php";
+require_once "dblogin.php";
 
-//processing the form // rajan is a gay
+//processing the form
 
 if (isset($_POST["submit"])){
+    
+
     //get data from the user for Registration
     $firstName = test_input($_POST["fname"]);
     $lastName = test_input($_POST["lname"]);
@@ -47,12 +64,44 @@ if (isset($_POST["submit"])){
     $username = test_input($_POST["username"]);
     $password = test_input($_POST["password"]);
     $confirmPassword = test_input($_POST["confirm-password"]);
-    
-//validate user input fields with certain restrictions
+
+    //validate input fields and verify
     validate($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword); 
+    
+    $user= new User($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword);
+    //validate user input fields with certain restrictions
+   
+    
 
     //after validation , create object if validation sucess , create object and pass values to the constructor 
     // after creating object push the data to the database abd registration sucessful
+
+    //creaating user object once all the data are validated
+    //$connect=query($query);
+    
+    //create the connection to the database
+    $connect = createConn();
+    
+    //query to get the username and email from the database 
+    $rowsusername=$connect->query($user->validateusername());
+    $rowsemail=$connect->query($user->validateemail());
+
+    //validating if the username and email already exists in the database
+    //if the username and email is not found inside the database
+    //the user registration data will be pushed to the database
+    if($rowsusername->num_rows>0){
+        echo "the username already exists";
+    }else if($rowsemail->num_rows>0){
+        echo "the email already exists";
+    } 
+    else{
+        $result=$connect->query($user->createAccount()); 
+        if (!$result){
+            die($connect->error);
+        }
+        else
+            echo "Account Created Successfully";
+    }
 
 }
 
