@@ -39,10 +39,6 @@ function valideAccountBS(){
         document.getElementById("selectErr").innerHTML="Select one";
     }
 }
-
-
-
-
 function check () {
     if (document.getElementById('password').value ==
       document.getElementById('confirmpassword').value) {
