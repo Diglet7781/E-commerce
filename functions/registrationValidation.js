@@ -28,4 +28,14 @@ function validatelastname(){
         console.log("hello");
     }
 }
-
+function check () {
+    if (document.getElementById('password').value ==
+      document.getElementById('confirmpassword').value) {
+     
+      document.getElementById('confirmpasswordErr').innerHTML ='matched';
+      
+    } else {
+      
+      document.getElementById('confirmpasswordErr').innerHTML ='not matched';
+    }
+  }
