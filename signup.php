@@ -20,7 +20,9 @@
         <span id="email"></span>
         <br>
         accountType:
-        <input type="text" name="accountType" placeholder="buyer/seller" >
+        Buyer <input type="radio" name="accountType"/>
+        Seller <input type="radio" name="accountType" />
+        
         <span id="accountType"></span>
         <br>
         username:<input type="text" name="username" placeholder="username" >
