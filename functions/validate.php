@@ -1,8 +1,8 @@
 <?php
 
 //validate the input
-function validate($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword){
-    if($firstName=="" || $lastName=="" || $email=="" || $accountType=="" || $password=="" || $confirmPassword==""){
+function validate($firstName,$lastName,$email,$username,$password,$confirmPassword){
+    if($firstName=="" || $lastName=="" || $email=="" || $password=="" || $confirmPassword==""){
         echo "All Fields must be entered";
     }
 }

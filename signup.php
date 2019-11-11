@@ -19,11 +19,11 @@
         email:<input type="email" name="email" placeholder="email" >
         <span id="email"></span>
         <br>
-        accountType:
-        Buyer <input type="radio" name="accountType"/>
-        Seller <input type="radio" name="accountType" />
-        
-        <span id="accountType"></span>
+        AccountType:
+        <br>
+        Buyer:<input type="radio" name="accountType" placeholder="buyer"id="buyer" onclick="valideAccountBS()">
+        Seller:<input type="radio" name="accountType" placeholder="seller" id="seller"onclick="valideAccountBS()">
+        <span id="selectErr"></span>
         <br>
         username:<input type="text" name="username" placeholder="username" >
         <span id="username"><span>
@@ -66,7 +66,7 @@ if (isset($_POST["submit"])){
     $confirmPassword = test_input($_POST["confirm-password"]);
 
     //validate input fields and verify
-    validate($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword); 
+    validate($firstName,$lastName,$email,$username,$password,$confirmPassword); 
     
     $user= new User($firstName,$lastName,$email,$accountType,$username,$password,$confirmPassword);
     //validate user input fields with certain restrictions
