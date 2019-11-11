@@ -19,11 +19,11 @@
         email:<input type="email" name="email" placeholder="email" >
         <span id="email"></span>
         <br>
-        accountType:
-        Buyer <input type="radio" name="accountType"/>
-        Seller <input type="radio" name="accountType" />
-        
-        <span id="accountType"></span>
+        AccountType:
+        <br>
+        Buyer:<input type="radio" name="accounttype" placeholder="buyer"id="buyer" onclick="valideAccountBS()">
+        Seller:<input type="radio" name="accounttype" placeholder="seller" id="seller"onclick="valideAccountBS()">
+        <span id="selectErr"></span>
         <br>
         username:<input type="text" name="username" placeholder="username" >
         <span id="username"><span>

@@ -28,6 +28,21 @@ function validatelastname(){
         console.log("hello");
     }
 }
+function valideAccountBS(){
+    if(document.getElementById("buyer").checked == true){
+        document.getElementById("selectErr").innerHTML="";
+        console.log("hello");
+    } else if(document.getElementById("seller").checked == true){
+        document.getElementById("selectErr").innerHTML="";
+        console.log("hello");
+    }else{
+        document.getElementById("selectErr").innerHTML="Select one";
+    }
+}
+
+
+
+
 function check () {
     if (document.getElementById('password').value ==
       document.getElementById('confirmpassword').value) {
