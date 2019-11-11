@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   
+
     <title>Signup</title>
 </head>
 <body>
@@ -13,25 +13,28 @@
         firstName:<input type="text" name="fname" placeholder="fname" id="firstName" oninput="validatefirstname()">
         <span id="firstNameErr"></span>
         <br>
-        lastName:<input type="text" name="lname" placeholder="lname" oninput="validatelastname()">
+        lastName:<input type="text" name="lname" placeholder="lname" oninput="validatelastname();">
         <span id="lastNameErr"></span>
         <br>
-        email:<input type="email" name="email" placeholder="email" oninput="email()">
+        email:<input type="email" name="email" placeholder="email" >
         <span id="email"></span>
         <br>
-        accountType:<input type="text" name="accountType" placeholder="buyer/seller" oninput="accountType()">
+        accountType:
+        Buyer <input type="radio" name="accountType"/>
+        Seller <input type="radio" name="accountType" />
+        
         <span id="accountType"></span>
         <br>
-        username:<input type="text" name="username" placeholder="username" oninput="username()">
+        username:<input type="text" name="username" placeholder="username" >
         <span id="username"><span>
         <br>
-        password:<input type="password" name="password" placeholder="password" oninput="password()">
+        password:<input type="password" name="password" placeholder="password" id="password" onkeyup="check();">
         <span id="password"><span>
         <br>
-        confirm-password:<input type="password" name="confirm-password" placeholder="confirm-password" oninput="confirmpassword()">
-        <span id="confirmpassword"><span>
-        <br>
-        <button name="submit" type="submit" >createAccount</button> 
+        confirm-password:<input type="password" name="confirm-password" placeholder="confirm-password" id="confirmpassword" onkeyup="check();">
+        <span id="confirmpasswordErr"></span>
+        <br><br>
+        <button name="submit" type="submit" value="createAccount">createAccount</button> 
        
        
     </form>  
