@@ -27,9 +27,9 @@
 </html>
 <?php
     session_start();
-    $_SESSION['username']=$row['username'];
-    $type= $_SESSION['type']=$row['accountType'];
-    $_SESSION['userid']=$row['userid'];
+    $username=$_SESSION['username'];
+    $type= $_SESSION['type'];
+    $sellerId=$_SESSION['userid'];
 
     require_once "dblogin.php";
     require_once "class/Seller.php";
@@ -47,7 +47,7 @@
         $productQuantity=test_input($_POST["quantity"]);
         $productPrice=test_input($_POST["price"]);
         $productImage=test_input($_POST["picture"]);
-        $sellerId=$_SESSION['userid'];
+       
           //validate input fields and verify
         //itemValidate($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage); 
         $products= new Seller($productName,$productType,$productDescription, $productQuantity, $productPrice, $productImage,$sellerId);
@@ -56,8 +56,9 @@
         if (!$result){
             die($connect->error);
         }
-        else
+        else{
             echo "item added sucessfully";
             header('Location:logout.php');
+        }
     }
 ?>
