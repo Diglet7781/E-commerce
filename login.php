@@ -23,21 +23,15 @@
    // session_start();
     require_once "functions/validate.php";
     require_once "dblogin.php";
-
    
-
-    if(isset($_POST['submit']))
-    {
+    if(isset($_POST['submit'])){
         $username=test_input($_POST['username']);
         $password=test_input($_POST['password']);
         
         //creating conncetion to the db
         $connect= createConn();
-
         $query="SELECT * From user where username='$username';";
-
         $result= $connect->query($query);
-
         if($result->num_rows==1){
             $row=$result->fetch_assoc();
 
