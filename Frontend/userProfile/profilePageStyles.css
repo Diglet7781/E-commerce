@@ -1,0 +1,25 @@
+.avatar >.img-circle {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  transform: translate(10%, -250%);
+  -ms-transform: translate(10, -250%);
+  text-align: center;
+}
+
+.col-sm-3:hover .avatar >.img-circle {
+  opacity: 0.3;
+}
+
+.col-sm-3:hover .middle {
+  opacity: 1;
+}
