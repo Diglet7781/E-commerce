@@ -43,10 +43,11 @@
            if (password_verify($password,$row['password'])){
               $_SESSION['username']=$row['username'];
               $type= $_SESSION['type']=$row['accountType'];
+              $_SESSION['userid']=$row['userid'];
 
               switch ($type){
                   case 'seller':
-                  header('Location:signup.php');
+                  header('Location:addinventory.php');
                   exit();
 
                   case 'buyer':

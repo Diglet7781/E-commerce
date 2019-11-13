@@ -1,48 +1,46 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Diglet7781 
-2
-01Diglet7781/E-commerce
- Code Issues 0 Pull requests 0 Projects 0 Wiki Security Insights Settings
-E-commerce/class/Seller.php
-@raajankhadka raajankhadka made some changes in seller.php
-829e58a 2 hours ago
-@Diglet7781@raajankhadka
-87 lines (67 sloc)  2.19 KB
   
 <?php
 include "User.php";
 require_once "dblogin.php";
 class Seller extends User{
     //properties
-    private $sellerID;
+    private $sellerId;
     private $accountBalance;
     private $totalAddedProduct;
+    private $productName;
+    private $productType;
+    private $productPrice;
+    private $productQuantity;
+    private $productDescription;
+    private $productImage;
     
     //methods
-    public function __construct($productName,$productId,$productDescription,$productQuantity,$productPrice,$productImage) {
+    public function __construct($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage,$sellerId) {
+        $this->sellerID=$sellerId;
         $this->productName = $productName;
-        $this->productID = $productId;
+        $this->productType=$productType;
         $this->productDescription = $productDescription;
         $this->productQuantity = $productQuantity;
         $this->productPrice=$productPrice;
         $this->productImage = $productImage;
         
       }
+
+      //get seller ID
+
+      public function getsellerId(){
+          return $this->sellerId;
+      }
    
+
     //get product name
     public function getproductName(){
         return $this->productName;
     }
     //get product ID
-    public function getproductId(){
-        return $this->productId;
+    public function getproductType(){
+        return $this->productType;
     }
     //get product description
     public function getproductDescription(){
@@ -54,16 +52,13 @@ class Seller extends User{
     }
     //get product price
     public function getproductPrice(){
-        return $this->productprice;
+        return $this->productPrice;
     }
     //get product image
     public function getproductImage(){
         return $this->productImage;
     }
-    //get seller ID
-    public function getsellerID(){
-        return $this->sellerID;
-    }
+   
     //get accountBalance
     public function getaccountBalance(){
         return $this->accountBalance;
@@ -74,16 +69,16 @@ class Seller extends User{
     }
     //add items to inventory
     public function addItems(){
+        $sellerId=$this->getsellerId();
         $productName= $this->getproductName();
-        $productId=$this->getproductId();
+        $productType=$this->getproductType();
         $productDescription=$this->getproductDescription();
         $productQuantity=$this->getproductQuantity();
         $productPrice=$this->getproductPrice();
         $productImage=$this->getproductImage();
-        
-        $query="INSERT INTO inventory(productid, productname, productdescription,quantity,price,picture) 
-        VALUES ('$productId','$productName','$productDescription','$productQuantity','$productPrice','$productImage')";
-       
+        //productid	productType	productName	productDescription	quantity	price	picture	sellerid
+        $query="INSERT INTO inventory(productType,productname, productdescription,quantity,price,picture,sellerid) 
+        VALUES ('$productType','$productName','$productDescription','$productQuantity','$productPrice','$productImage','$sellerId')";
         return $query;
     }
     
