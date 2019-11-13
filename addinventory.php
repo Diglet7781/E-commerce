@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <title>Signup</title>
 </head>
 <body>
-    <form id="inventoryForm"action="addInventory.php"method="post">
+    <form id="inventoryForm"action="addinventory.php" method="post">
        Product Name:<input type="text"name="itemName">
         <br>
         ProductType:<input type="text"name="productType">
@@ -22,18 +23,25 @@
         pictures:<input type="file"name="picture">
         <br>
         <input type="submit"name="add"value="add">
+        
 </form>
+<a href="logout.php">logout</a>
 </body>
 </html>
 <?php
-    session_start();
-    $username=$_SESSION['username'];
-    $type= $_SESSION['type'];
-    $sellerId=$_SESSION['userid'];
-
+    
     require_once "dblogin.php";
     require_once "class/Seller.php";
     require_once "functions/validate.php";
+
+   // $username=$_SESSION['username'];
+   // $type= $_SESSION['type'];
+   session_start();
+   
+    $sellerId=$_SESSION["userId"];
+
+   echo  $_SESSION["userId"];
+
    // session_start();
    // if(isset($_SESSION['accountType']))
    // {
@@ -50,7 +58,7 @@
        
           //validate input fields and verify
         //itemValidate($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage); 
-        $products= new Seller($productName,$productType,$productDescription, $productQuantity, $productPrice, $productImage,$sellerId);
+        $products= new Seller($productName,$productType,$productDescription, $productQuantity, $productPrice, $productImage,$_SESSION["userId"]);
         $connect = createConn();
         $result=$connect->query($products->addItems()); 
         if (!$result){

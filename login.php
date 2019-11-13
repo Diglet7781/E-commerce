@@ -20,13 +20,14 @@
 </body>
 </html>
 <?php
-    session_start();
+   // session_start();
     require_once "functions/validate.php";
     require_once "dblogin.php";
 
    
 
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit']))
+    {
         $username=test_input($_POST['username']);
         $password=test_input($_POST['password']);
         
@@ -40,31 +41,36 @@
         if($result->num_rows==1){
             $row=$result->fetch_assoc();
 
-           if (password_verify($password,$row['password'])){
+           if (password_verify($password,$row['password']))
+           {
+               session_start();
               $_SESSION['username']=$row['username'];
               $type= $_SESSION['type']=$row['accountType'];
-              $_SESSION['userid']=$row['userid'];
+              $_SESSION['userId']=$row['userId'];
+              
 
-              switch ($type){
-                  case 'seller':
-                  header('Location:addinventory.php');
-                  exit();
+                    switch ($type)
+                                    {
+                                        case 'seller':
+                                         header('Location:addinventory.php');
+                                        exit();
 
-                  case 'buyer':
-                  header('Location:buyer_home.php');
-                  exit();
-              }
-           }else{
+                                        case 'buyer':
+                                        header('Location:buyer_home.php');
+                                        exit();
+                                        default:
+                                        echo "create account ";
+                                    }
+            }
+
+            else{
                echo "password did not match";
-           }
-
+                }
 
         }
         else{
             echo "please enter the correct credentials or create a new account";
-        }
-
-
-    }else{
-        echo "hello";
+             }
+ 
     }
+    ?>
