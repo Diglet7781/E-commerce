@@ -12,7 +12,11 @@
     <form id="inventoryForm"action="addinventory.php" method="post">
        Product Name:<input type="text"name="itemName">
         <br>
-        ProductType:<input type="text"name="productType">
+        ProductType:
+        Book
+        <input type="radio"name="productType" value="book">
+        Apparel
+        <input type="radio" name="productType" value="apparel">
         <br>
         Description:<input type="text"name="description">
         <br>
@@ -50,7 +54,7 @@
     
     if (isset($_POST["add"])){
         $productName= test_input($_POST["itemName"]);
-        $ProductType=test_input($_POST["productType"]);
+        $productType=test_input($_POST["productType"]);
         $productDescription=test_input($_POST["description"]);
         $productQuantity=test_input($_POST["quantity"]);
         $productPrice=test_input($_POST["price"]);
