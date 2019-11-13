@@ -39,7 +39,7 @@
         echo    "<th>seller ID</th>";
     echo"</tr>";
    	while($row = $reasult->fetch_assoc()){
-        $image = $row["picture"];
+           
    		echo   "<tr>";
             echo    "<td>" . $row["productid"]. "</td>";
             echo    "<td>" . $row["productType"].  "</td>";
@@ -47,7 +47,7 @@
             echo    "<td>" . $row["productDescription"]. "</td>";
             echo    "<td>" . $row["quantity"]. "</td>"; 
             echo    "<td>" . $row["price"]. "</td>";
-            echo    "<td>"."<img src='$image' >"."</td>";
+            echo "<td><img src='".$row['picture']."'></td>";
             
             echo    "<td>" . $row["sellerid"]. "</td>";
         echo "</tr>";
