@@ -1,6 +1,7 @@
 
   
 <?php
+  session_start();
 include "User.php";
 require_once "dblogin.php";
 class Seller extends User{
@@ -16,8 +17,9 @@ class Seller extends User{
     private $productImage;
     
     //methods
-    public function __construct($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage,$sellerId) {
-        $this->sellerID=$sellerId;
+  
+    public function __construct($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage) {
+        $this->sellerId=$_SESSION['userId'];
         $this->productName = $productName;
         $this->productType=$productType;
         $this->productDescription = $productDescription;

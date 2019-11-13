@@ -58,7 +58,7 @@
        
           //validate input fields and verify
         //itemValidate($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage); 
-        $products= new Seller($productName,$productType,$productDescription, $productQuantity, $productPrice, $productImage,$_SESSION["userId"]);
+        $products= new Seller($productName,$productType,$productDescription, $productQuantity, $productPrice, $productImage);
         $connect = createConn();
         $result=$connect->query($products->addItems()); 
         if (!$result){
