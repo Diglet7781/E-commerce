@@ -24,9 +24,7 @@
     require_once "functions/validate.php";
     require_once "dblogin.php";
    
-
-    if(isset($_POST['submit']))
-    {
+    if(isset($_POST['submit'])){
         $username=test_input($_POST['username']);
         $password=test_input($_POST['password']);
         
