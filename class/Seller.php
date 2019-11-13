@@ -1,87 +1,83 @@
 <?php
+  session_start();
 include "User.php";
 require_once "dblogin.php";
 class Seller extends User{
     //properties
-    private $sellerID;
+    private $sellerId;
     private $accountBalance;
     private $totalAddedProduct;
+    private $productName;
+    private $productType;
+    private $productPrice;
+    private $productQuantity;
+    private $productDescription;
+    private $productImage;
     
-
     //methods
-    public function __construct($productName,$productId,$productDescription,$productQuantity,$productPrice,$productImage) {
+  
+    public function __construct($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage) {
+        $this->sellerId=$_SESSION['userId'];
         $this->productName = $productName;
-        $this->productID = $productId;
+        $this->productType=$productType;
         $this->productDescription = $productDescription;
         $this->productQuantity = $productQuantity;
         $this->productPrice=$productPrice;
         $this->productImage = $productImage;
         
       }
-
+      //get seller ID
+      public function getsellerId(){
+          return $this->sellerId;
+      }
    
     //get product name
     public function getproductName(){
         return $this->productName;
     }
     //get product ID
-    public function getproductId(){
-        return $this->productId;
+    public function getproductType(){
+        return $this->productType;
     }
-
     //get product description
     public function getproductDescription(){
         return $this->productDescription;
     }
-
     //get product quantity
     public function getproductQuantity(){
         return $this->productQuantity;
     }
-
     //get product price
     public function getproductPrice(){
-        return $this->productprice;
+        return $this->productPrice;
     }
     //get product image
     public function getproductImage(){
         return $this->productImage;
     }
-
-    //get seller ID
-    public function getsellerID(){
-        return $this->sellerID;
-    }
-
+   
     //get accountBalance
     public function getaccountBalance(){
         return $this->accountBalance;
     }
-
     //get totaladdedProduct
     public function totalAddedProduct(){
         return $this->totalAddedProduct;
     }
     //add items to inventory
     public function addItems(){
+        $sellerId=$this->getsellerId();
         $productName= $this->getproductName();
-        $productId=$this->getproductId();
+        $productType=$this->getproductType();
         $productDescription=$this->getproductDescription();
         $productQuantity=$this->getproductQuantity();
         $productPrice=$this->getproductPrice();
         $productImage=$this->getproductImage();
-        
-        $query="INSERT INTO inventory(productid, productname, productdescription,quantity,price,picture) 
-        VALUES ('$productId','$productName','$productDescription','$productQuantity','$productPrice','$productImage')";
-       
+        //productid	productType	productName	productDescription	quantity	price	picture	sellerid
+        $query="INSERT INTO inventory(productType,productname, productdescription,quantity,price,picture,sellerid) 
+        VALUES ('$productType','$productName','$productDescription','$productQuantity','$productPrice','$productImage','$sellerId')";
         return $query;
-
     }
     
-
 }
-
-
-
-
 ?>
