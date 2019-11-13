@@ -28,6 +28,7 @@
 <?php
     require_once "dblogin.php";
     require_once "class/Seller.php";
+    require_once "functions/validate.php";
    // session_start();
    // if(isset($_SESSION['accountType']))
    // {
@@ -43,7 +44,8 @@
         $productPrice=test_input($_POST["price"]);
         $productImage=test_input($_POST["picture"]);
 
-
+          //validate input fields and verify
+        itemValidate($productName,$productId,$productDescription,$productQuantity,$productPrice,$productImage); 
         $products= new Seller($productName,$productId,$productDescription, $productQuantity, $productPrice, $productImage);
 
         $connect = createConn();
