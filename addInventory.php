@@ -28,7 +28,12 @@
 <?php
     require_once "dblogin.php";
     require_once "class/Seller.php";
-
+   // session_start();
+   // if(isset($_SESSION['accountType']))
+   // {
+      //  if($_SESSION['accountType']=='seller')
+       // {
+    
     if (isset($_POST["add"])){
 
         $productName= test_input($_POST["itemName"]);
