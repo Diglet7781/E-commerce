@@ -8,7 +8,7 @@
     <title>Signup</title>
 </head>
 <body>
-    <form id="inventoryForm"action="addinventory.php" method="post">
+    <form id="inventoryForm"action="addinventory.php" method="post" enctype="multipart/form-data">
        Product Name:<input type="text"name="itemName">
         <br>
         ProductType:
@@ -38,7 +38,7 @@
     require_once "functions/validate.php";
    // $username=$_SESSION['username'];
    // $type= $_SESSION['type'];
-  //session_start();
+   session_start();
    
     $sellerId=$_SESSION["userId"];
    echo  $_SESSION["userId"];
@@ -54,13 +54,29 @@
         $productDescription=test_input($_POST["description"]);
         $productQuantity=test_input($_POST["quantity"]);
         $productPrice=test_input($_POST["price"]);
-        $productImage=test_input($_POST["picture"]);
-       
+        $status = 'on';
+        //For pictures
+        $picName=$_FILES['picture']['picName'];
+        $target_dir="upload/";
+        $target_file=$target_dir .basename($_FILES["picture"]["picName"]);
+
+        //select file type
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        //valid file exxtensions
+        $extensions_arr = array("jpg","jpeg","png","gif");
+
+        $image_base64 = base64_encode(file_get_contents($_FILES['picture']['tmp_name']) );
+        $productImage = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+        
           //validate input fields and verify
         //itemValidate($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage); 
         $products= new Seller($productName,$productType,$productDescription, $productQuantity, $productPrice, $productImage);
         $connect = createConn();
         $result=$connect->query($products->addItems()); 
+
+        //Upload File
+        move_uploaded_file($_FILES['picture']['tmp_name'],$target_dir.$name);
         if (!$result){
             die($connect->error);
         }

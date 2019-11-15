@@ -47,8 +47,9 @@
             echo    "<td>" . $row["productDescription"]. "</td>";
             echo    "<td>" . $row["quantity"]. "</td>"; 
             echo    "<td>" . $row["price"]. "</td>";
-            echo "<td><img src='".$row['picture']."'></td>";
-            
+            echo    "<td>";
+            echo "<img src='" . $row['picture'] . "'>";
+            echo "</td>";
             echo    "<td>" . $row["sellerid"]. "</td>";
         echo "</tr>";
    	}

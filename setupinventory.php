@@ -8,7 +8,8 @@
   productDescription VARCHAR(250),
   quantity int(11),
   price float(10),
-  picture blob,
+  picName varchar(256) NOT NULL,
+  picture longtext NOT NULL,
   sellerid int(11),
   PRIMARY KEY (productid))";
   
