@@ -1,0 +1,9 @@
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:5px !important; padding-bottom:0 !important;
+    height: 25px;
+}
+.navbar-brand > img
+{
+     margin-top: -33px;
+}

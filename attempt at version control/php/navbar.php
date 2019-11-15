@@ -4,10 +4,9 @@
       <img src="../img/nav2.png" width="80" height="80" class="logo-dark d-inline-block align-top" alt="logo"> 
       </a>
       <div class="navbar-brand mb-1 h4">
-         <h2> BaaZaar ... </h2>
+         <h2>BaaZaar</h2>
       </div>
    </div>
-   <h1>........</h1>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
    <span class="navbar-toggler-icon"></span>
    </button>
@@ -33,6 +32,5 @@
       <div class = "button">
          <button type="button" class="btn btn-danger">Get Started!</button>
       </div>
-      <h1> ........................</h1>
    </div>
 </nav>
