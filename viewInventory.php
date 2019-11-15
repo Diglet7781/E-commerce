@@ -51,6 +51,7 @@
             echo "<img src='" . $row['picture'] . "'>";
             echo "</td>";
             echo    "<td>" . $row["sellerid"]. "</td>";
+            echo '<td><a href="editInventory.php?id=' . $row['productid'] . '">Update</a></td>';
         echo "</tr>";
    	}
 
