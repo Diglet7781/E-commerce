@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="../css/slidingOverlayStyles.css">
+      <link rel="stylesheet" type="text/css" href="../css/navbarStyles.css">
+      <title>Login/Sign In Page</title>
+   </head>
+   <body>
+      <div id="navBarPlaceholder"></div>
+      <div class="container" id="container">
+         <div class="form-container sign-up-container">
+            <form action="#">
+               <h1>Create Account</h1>
+               <input type="text" placeholder="Name">
+               <input type="email" placeholder="Email">
+               <input type="password" placeholder="Password">
+               <button>Sign Up</button>
+            </form>
+         </div>
+         <div class="form-container sign-in-container">
+            <form action="#">
+               <h1>Sign In</h1>
+               <input type="email" placeholder="Email">
+               <input type="password" placeholder="Password">
+               <button>Sign In</button>
+            </form>
+         </div>
+         <div class="overlay-container">
+            <div class="overlay">
+               <div class="overlay-panel overlay-left">
+                  <h1>Welcome Back</h1>
+                  <button class="ghost" id="signIn">Sign In</button>
+               </div>
+               <div class="overlay-panel overlay-right">
+                  <h1>Hey there, Stranger</h1>
+                  <p>Enter your personal details and start journey with us</p>
+                  <button class="ghost" id="signUp">Sign Up</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="footerPlaceholder"></div>
+      <script src="../js/slidingOverlayJayEs.js"></script>
+      <script src="../js/loadNavAndFooter.js"></script>
+   </body>
+</html>
