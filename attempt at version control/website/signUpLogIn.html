@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width-device-width,initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="sie-edge" />
+      <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="../css/slidingOverlayStyles.css">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+      <title>Slider Form</title>
+
+
+      
+      
+
+   </head>
+   <body>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" >
+         <div class="navbar-left">
+            <a class="navbar-brand" href="">
+            <img src="../img/nav2.png" width="80" height="80" class="logo-dark d-inline-block align-top" alt="logo"> 
+            </a>
+            <div class="navbar-brand mb-1 h4">
+               <h2> BaaZaar ... </h2>
+            </div>
+         </div>
+         <h1>........</h1>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Products <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Brands <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link " href="#" tabindex="-1" >Deals <span class="sr-only">(current)</span></a>
+                  <!-- if needed we have to span more class into it -->
+               <li class="nav-item">
+                  <a class="nav-link " href="#" tabindex="-1" >Services <span class="sr-only">(current)</span></a>
+               </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+               <input class="form-control mr-sm-2" type="search" placeholder="Search">
+               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div class = "button">
+               <button type="button" class="btn btn-danger">Get Started!</button>
+            </div>
+            <h1> ........................</h1>
+         </div>
+      </nav>
+      <div class="container" id="container">
+         <div class="form-container sign-up-container">
+            <form action="#">
+               <h1>Create Account</h1>
+               <input type="text" placeholder="Name">
+               <input type="email" placeholder="Email">
+               <input type="password" placeholder="Password">
+               <button>Sign Up</button>
+            </form>
+         </div>
+         <div class="form-container sign-in-container">
+            <form action="#">
+               <h1>Sign In</h1>
+               <input type="email" placeholder="Email">
+               <input type="password" placeholder="Password">
+               <button>Sign In</button>
+            </form>
+         </div>
+         <div class="overlay-container">
+            <div class="overlay">
+               <div class="overlay-panel overlay-left">
+                  <h1>Welcome Back</h1>
+                  <p>To keep connected with us please login with your personal info</p>
+                  <button class="ghost" id="signIn">Sign In</button>
+               </div>
+               <div class="overlay-panel overlay-right">
+                  <h1>Hello,Friend</h1>
+                  <p>Enter your personal details and start journey with us</p>
+                  <button class="ghost" id="signUp">Sign Up</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+<footer class="footer navbar-fixed-bottom">
+     <div class="container">
+
+
+
+
+
+
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="../../assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">© 2017-2018</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Cool stuff</a></li>
+              <li><a class="text-muted" href="#">Random feature</a></li>
+              <li><a class="text-muted" href="#">Team feature</a></li>
+              <li><a class="text-muted" href="#">Stuff for developers</a></li>
+              <li><a class="text-muted" href="#">Another one</a></li>
+              <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Resource</a></li>
+              <li><a class="text-muted" href="#">Resource name</a></li>
+              <li><a class="text-muted" href="#">Another resource</a></li>
+              <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+
+
+
+     </div>
+</footer>
+
+      <script src="../js/slidingOverlayJayEs.js"></script>
+      <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
+   </body>
+</html>
+
