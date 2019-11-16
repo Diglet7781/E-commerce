@@ -33,7 +33,7 @@
     require_once "functions/validate.php";
 
     $id = intval($_GET['id']);
-    console.log("hello");
+    echo"this is id: $id";
     if (isset($_POST["update"])){
         $productName= $_POST["itemName"];
         $productDescription=$_POST["description"];
@@ -41,9 +41,12 @@
         $productPrice=$_POST["price"];
 
         $connect = createConn();
-        //database not connecting
         
-        console.log("hello");
+        if ($connect->connect_error) {
+            die("Connection failed: " . $connect->connect_error);
+        }
+        echo "Connected successfully";
+    
 
         $sql="UPDATE inventory SET productName='$productName',productDescription='$productDescription',quantity='$productQuantity',price='$productPrice'WHERE productid='$id'";
         console.log("hello");
