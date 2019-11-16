@@ -52,6 +52,7 @@
             echo "</td>";
             echo    "<td>" . $row["sellerid"]. "</td>";
             echo '<td><a href="editInventory.php?id=' . $row['productid'] . '">Update</a></td>';
+            echo '<td><a href="deleteItem.php?id=' . $row['productid'] . '">Delete</a></td>';
         echo "</tr>";
    	}
 
