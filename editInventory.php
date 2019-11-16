@@ -41,6 +41,8 @@
         $productPrice=$_POST["price"];
 
         $connect = createConn();
+        //database not connecting
+        
         console.log("hello");
 
         $sql="UPDATE inventory SET productName='$productName',productDescription='$productDescription',quantity='$productQuantity',price='$productPrice'WHERE productid='$id'";
