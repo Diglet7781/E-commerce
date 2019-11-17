@@ -69,7 +69,7 @@
        echo    "<th>seller ID</th>";
    echo"</tr>";
       while($row = $reasult1->fetch_assoc()){
-          $SID=$row["productid"];
+        $productid=$row["productid"];
           
           echo   "<tr>";
            echo    "<td>" . $row["productid"]. "</td>";
@@ -82,8 +82,8 @@
            echo "<img src='" . $row['picture'] . "'>";
            echo "</td>";
            echo    "<td>" . $row["sellerid"]. "</td>";
-           echo '<td><a href="editInventory.php?productId=' .$SID. '">Update</a></td>';
-           echo '<td><a href="deleteItem.php?'.SID.'">Delete</a></td>';
+           echo '<td><a href="editInventory.php?id='.$productid.'">Update</a></td>';
+           echo '<td><a href="deleteItem.php?id='.$productid.'">Delete</a></td>'; 
        echo "</tr>";
       }
        echo"</table>";
