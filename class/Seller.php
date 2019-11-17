@@ -19,6 +19,7 @@ class Seller extends User{
     //methods
   
     public function __construct($productName,$productType,$productDescription,$productQuantity,$productPrice,$productImage) {
+        
         $this->sellerId=$_SESSION['userId'];
         $this->productName = $productName;
         $this->productType=$productType;
