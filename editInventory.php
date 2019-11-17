@@ -8,7 +8,10 @@
     <title>Signup</title>
 </head>
 <body>
-    <form id="inventoryForm"action="editInventory.php" method="post" enctype="multipart/form-data">
+<?php  $id = intval($_GET['id']);
+echo"the id is $id";
+?>
+    <form id="inventoryForm"action="editInventory.php" method="post">
         Please fill out the form with updated infromation.
         <br>
        Product Name:<input type="text"name="itemName">
@@ -20,7 +23,7 @@
         Price per item:<input type="text"name="price">
         <br>
        
-        <input type="submit"name="Update"value="Update">
+        <button name="submit" type="submit" value="update">Update</button>
         
 </form>
 <a href="logout.php">logout</a>
@@ -32,9 +35,10 @@
     require_once "class/Seller.php";
     require_once "functions/validate.php";
 
-    $id = intval($_GET['id']);
-    echo"this is id: $id";
-    if (isset($_POST["update"])){
+   session_start();
+    $id=$_SESSION['id'];
+    echo"this is $id";
+    if (isset($_POST["submit"])){
         $productName= $_POST["itemName"];
         $productDescription=$_POST["description"];
         $productQuantity=$_POST["quantity"];
@@ -49,7 +53,7 @@
     
 
         $sql="UPDATE inventory SET productName='$productName',productDescription='$productDescription',quantity='$productQuantity',price='$productPrice'WHERE productid='$id'";
-        console.log("hello");
+       // console.log("hello");
         if($connect->query($sql) === TRUE){
             echo"item updated sucessfully";
         }else{

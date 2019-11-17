@@ -20,8 +20,9 @@
 	<h1>Inventory</h1>
 <?php 
 	
-	require_once "dblogin.php";
+    require_once "dblogin.php";
     
+    session_start();
     $connect = createConn();
 
    $sqlBooks= "SELECT * FROM inventory WHERE productType='book'";
@@ -39,6 +40,7 @@
         echo    "<th>seller ID</th>";
     echo"</tr>";
    	while($row = $reasult->fetch_assoc()){
+           $_SESSION['id']=$row["productid"];
            
    		echo   "<tr>";
             echo    "<td>" . $row["productid"]. "</td>";
@@ -51,8 +53,8 @@
             echo "<img src='" . $row['picture'] . "'>";
             echo "</td>";
             echo    "<td>" . $row["sellerid"]. "</td>";
-            echo '<td><a href="editInventory.php?id=' . $row['productid'] . '">Update</a></td>';
-            echo '<td><a href="deleteItem.php?id=' . $row['productid'] . '">Delete</a></td>';
+            echo '<td><a href="editInventory.php?' .SID. '">Update</a></td>';
+            echo '<td><a href="deleteItem.php?'.SID.'">Delete</a></td>';
         echo "</tr>";
    	}
 
