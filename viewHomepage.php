@@ -52,7 +52,7 @@
         echo    "<td>";
         echo "<img src='" . $row['picture'] . "'>";
         echo "</td>";
-        echo '<td><a href="addToCart.php?' .SID. '">Add to Cart</a></td>';
+        echo '<td><a href="addToCart.php">Add to Cart</a></td>';
         echo "</tr>";
     }
     echo"</table";

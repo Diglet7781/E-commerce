@@ -20,7 +20,6 @@
 	
     require_once "dblogin.php";
     
-    session_start();
     $connect = createConn();
    $sqlBooks= "SELECT * FROM inventory WHERE productType='book'";
    $sqlApparels="SELECT * FROM inventory WHERE productType='apparel'";
@@ -39,7 +38,7 @@
         echo    "<th>seller ID</th>";
     echo"</tr>";
    	while($row = $reasult->fetch_assoc()){
-           $_SESSION['id']=$row["productid"];
+           $productid=$row["productid"];
            
    		echo   "<tr>";
             echo    "<td>" . $row["productid"]. "</td>";
@@ -52,8 +51,8 @@
             echo "<img src='" . $row['picture'] . "'>";
             echo "</td>";
             echo    "<td>" . $row["sellerid"]. "</td>";
-            echo '<td><a href="editInventory.php?' .SID. '">Update</a></td>';
-            echo '<td><a href="deleteItem.php?'.SID.'">Delete</a></td>';
+            echo '<td><a href="editInventory.php?id='.$productid.'">Update</a></td>';
+            echo '<td><a href="deleteItem.php?id='.$productid.'">Delete</a></td>';
         echo "</tr>";
        }
        echo"</table";
@@ -70,7 +69,7 @@
        echo    "<th>seller ID</th>";
    echo"</tr>";
       while($row = $reasult1->fetch_assoc()){
-          $_SESSION['id']=$row["productid"];
+          $SID=$row["productid"];
           
           echo   "<tr>";
            echo    "<td>" . $row["productid"]. "</td>";
@@ -83,7 +82,7 @@
            echo "<img src='" . $row['picture'] . "'>";
            echo "</td>";
            echo    "<td>" . $row["sellerid"]. "</td>";
-           echo '<td><a href="editInventory.php?' .SID. '">Update</a></td>';
+           echo '<td><a href="editInventory.php?productId=' .$SID. '">Update</a></td>';
            echo '<td><a href="deleteItem.php?'.SID.'">Delete</a></td>';
        echo "</tr>";
       }

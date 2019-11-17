@@ -9,7 +9,8 @@
 </head>
 <body>
 
-    <form id="inventoryForm"action="editInventory.php" method="post">
+    <form action="" method="post">
+        <input type="hidden" name="id" value ="<?php echo $id;?>"/>
         Please fill out the form with updated infromation.
         <br>
        Product Name:<input type="text"name="itemName">
@@ -32,10 +33,12 @@
     require_once "dblogin.php";
     require_once "class/Seller.php";
     require_once "functions/validate.php";
-   session_start();
-    $id=$_SESSION['id'];
-    echo"this is $id";
+    $productId=$_GET['id'];
+    echo"this is $productId";
+    
     if (isset($_POST["submit"])){
+        echo"this sucks";
+      
         $productName= $_POST["itemName"];
         $productDescription=$_POST["description"];
         $productQuantity=$_POST["quantity"];
@@ -47,7 +50,7 @@
         }
         echo "Connected successfully";
     
-        $sql="UPDATE inventory SET productName='$productName',productDescription='$productDescription',quantity='$productQuantity',price='$productPrice'WHERE productid='$id'";
+        $sql="UPDATE inventory SET productName='$productName',productDescription='$productDescription',quantity='$productQuantity',price='$productPrice'WHERE productid='$productId'";
        // console.log("hello");
         if($connect->query($sql) === TRUE){
             echo"item updated sucessfully";
@@ -57,4 +60,5 @@
         
        
     }
+
     ?>

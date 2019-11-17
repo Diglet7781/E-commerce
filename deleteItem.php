@@ -1,7 +1,6 @@
 <?php
     require_once "dblogin.php";
-    session_start();
-    $id=$_SESSION['id'];
+    $id=$_GET['id'];
     echo"your id is $id";
     $connect = createConn();
     if ($connect->connect_error) {
