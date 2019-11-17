@@ -8,9 +8,7 @@
     <title>Signup</title>
 </head>
 <body>
-<?php  $id = intval($_GET['id']);
-echo"the id is $id";
-?>
+
     <form id="inventoryForm"action="editInventory.php" method="post">
         Please fill out the form with updated infromation.
         <br>
@@ -34,7 +32,6 @@ echo"the id is $id";
     require_once "dblogin.php";
     require_once "class/Seller.php";
     require_once "functions/validate.php";
-
    session_start();
     $id=$_SESSION['id'];
     echo"this is $id";
@@ -43,7 +40,6 @@ echo"the id is $id";
         $productDescription=$_POST["description"];
         $productQuantity=$_POST["quantity"];
         $productPrice=$_POST["price"];
-
         $connect = createConn();
         
         if ($connect->connect_error) {
@@ -51,7 +47,6 @@ echo"the id is $id";
         }
         echo "Connected successfully";
     
-
         $sql="UPDATE inventory SET productName='$productName',productDescription='$productDescription',quantity='$productQuantity',price='$productPrice'WHERE productid='$id'";
        // console.log("hello");
         if($connect->query($sql) === TRUE){
@@ -62,5 +57,4 @@ echo"the id is $id";
         
        
     }
-
     ?>
