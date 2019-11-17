@@ -20,7 +20,7 @@
 	
     require_once "dblogin.php";
     
-    session_start();
+
     $connect = createConn();
     $sqlBooks= "SELECT * FROM inventory WHERE productType='book'";
    $sqlApparels="SELECT * FROM inventory WHERE productType='apparel'";
@@ -31,13 +31,13 @@
     echo    "<th>pictures</th>";
     echo"</tr>";
     while($row = $reasult->fetch_assoc()){
-        $_SESSION['id']=$row["productid"];
+        $productid=$row["productid"];
         
         echo   "<tr>";
         echo    "<td>";
         echo "<img src='" . $row['picture'] . "'>";
         echo "</td>";
-        echo '<td><a href="addToCart.php?' .SID. '">Add to Cart</a></td>';
+        echo '<td><a href="addToCart.php?id='.$productid.'">Add TO Cart</a></td>';
         echo "</tr>";
     }
     echo"</table";
@@ -46,13 +46,13 @@
     echo    "<th>pictures</th>";
     echo"</tr>";
     while($row = $reasult1->fetch_assoc()){
-        $_SESSION['id']=$row["productid"];
+        $productid=$row["productid"];
         
         echo   "<tr>";
         echo    "<td>";
         echo "<img src='" . $row['picture'] . "'>";
         echo "</td>";
-        echo '<td><a href="addToCart.php">Add to Cart</a></td>';
+        echo '<td><a href="addToCart.php?id='.$productid.'">Add To Cart</a></td>';
         echo "</tr>";
     }
     echo"</table";

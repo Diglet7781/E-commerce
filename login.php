@@ -20,7 +20,7 @@
 </body>
 </html>
 <?php
-   // session_start();
+    session_start();
     require_once "functions/validate.php";
     require_once "dblogin.php";
    
@@ -47,7 +47,7 @@
                                          header('Location:addinventory.php');
                                         exit();
                                         case 'buyer':
-                                        header('Location:buyer_home.php');
+                                        header('Location:viewHomepage.php');
                                         exit();
                                         default:
                                         echo "create account ";
