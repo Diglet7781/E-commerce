@@ -28,7 +28,7 @@
         <input type="submit"name="add"value="add">
         
 </form>
-<a href="logout.php">logout</a>
+<a href="viewInventory.php">View Product</a>
 </body>
 </html>
 <?php

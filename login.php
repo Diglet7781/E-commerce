@@ -20,7 +20,7 @@
 </body>
 </html>
 <?php
-    session_start();
+   // session_start();
     require_once "functions/validate.php";
     require_once "dblogin.php";
    
