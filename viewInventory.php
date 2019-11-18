@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 
@@ -19,10 +22,10 @@
 <?php 
 	
     require_once "dblogin.php";
-    
+    $sellerId=$_SESSION["userId"];
     $connect = createConn();
-   $sqlBooks= "SELECT * FROM inventory WHERE productType='book'";
-   $sqlApparels="SELECT * FROM inventory WHERE productType='apparel'";
+   $sqlBooks= "SELECT * FROM inventory WHERE productType='book' AND sellerid='$sellerId'";
+   $sqlApparels="SELECT * FROM inventory WHERE productType='apparel' AND sellerid='$sellerId'";
    $reasult1=$connect->query($sqlApparels);
    $reasult = $connect->query($sqlBooks);
    echo"Books Inventory";
