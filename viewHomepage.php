@@ -35,7 +35,7 @@
         
         echo   "<tr>";
         echo    "<td>";
-        echo "<img src='" . $row['picture'] . "'>";
+        echo "<img style='height:50px;'src='" . $row['picture'] . "'>";
         echo "</td>";
         echo '<td><a href="addToCart.php?id='.$productid.'">Add TO Cart</a></td>';
         echo "</tr>";
@@ -55,7 +55,9 @@
         echo '<td><a href="addToCart.php?id='.$productid.'">Add To Cart</a></td>';
         echo "</tr>";
     }
+    echo'<td><a href="viewCart.php">view cart</a></td>';
     echo"</table";
+
     $connect->close();
     ?>
  </table>

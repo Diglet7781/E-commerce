@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
    
-    <title>Signup</title>
+    <title>editInventory</title>
 </head>
 <body>
 
@@ -34,7 +34,7 @@
     require_once "class/Seller.php";
     require_once "functions/validate.php";
     $productId=$_GET['id'];
-    echo"this is $productId";
+    //echo"this is $productId";
     
     if (isset($_POST["submit"])){
         echo"this sucks";
@@ -45,20 +45,17 @@
         $productPrice=$_POST["price"];
         $connect = createConn();
         
-        if ($connect->connect_error) {
-            die("Connection failed: " . $connect->connect_error);
-        }
-        echo "Connected successfully";
     
         $sql="UPDATE inventory SET productName='$productName',productDescription='$productDescription',quantity='$productQuantity',price='$productPrice'WHERE productid='$productId'";
        // console.log("hello");
         if($connect->query($sql) === TRUE){
             echo"item updated sucessfully";
+            echo'<a href="viewInventory.php"> View Inventory</a>';
         }else{
             echo"Errorr updating record: ". $connect->error;
         }
         
        
     }
-
+   
     ?>

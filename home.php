@@ -13,7 +13,7 @@
 require_once "dblogin.php";
 $connect=createConn();
 
-$query="SELECT * FROM  inventory where productType='book';";
+$query="SELECT * FROM  inventory";
 
 $result=$connect->query($query);
 
@@ -34,6 +34,7 @@ echo "<div class ='display'>";
     echo '<a href="viewdetails.php?productId=' .$productID. '">details</a>';
     
 echo "</div>";
+header('Location:viewCart.php');
 }
 
 ?>

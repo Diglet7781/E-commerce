@@ -79,5 +79,6 @@ class Seller extends User{
         return $query;
     }
     
+    
 }
 ?>

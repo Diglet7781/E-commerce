@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 
 
@@ -22,6 +20,7 @@ session_start();
 <?php 
 	
     require_once "dblogin.php";
+    session_start();
     $sellerId=$_SESSION["userId"];
     $connect = createConn();
    $sqlBooks= "SELECT * FROM inventory WHERE productType='book' AND sellerid='$sellerId'";
@@ -51,16 +50,18 @@ session_start();
             echo    "<td>" . $row["quantity"]. "</td>"; 
             echo    "<td>" . $row["price"]. "</td>";
             echo    "<td>";
-            echo "<img src='" . $row['picture'] . "'>";
+            echo "<img style='height:50px;'src='" . $row['picture'] . "'>";
             echo "</td>";
             echo    "<td>" . $row["sellerid"]. "</td>";
             echo '<td><a href="editInventory.php?id='.$productid.'">Update</a></td>';
             echo '<td><a href="deleteItem.php?id='.$productid.'">Delete</a></td>';
         echo "</tr>";
        }
+       echo'<td><a href="addInventory.php"> Add new item</a></td>';
        echo"</table";
-       echo"Apparel table";
+       
        echo"<table>";
+       
        echo "<tr>";
        echo    "<th>Product ID</th>";
        echo    "<th>Product Type</th>";
@@ -82,13 +83,14 @@ session_start();
            echo    "<td>" . $row["quantity"]. "</td>"; 
            echo    "<td>" . $row["price"]. "</td>";
            echo    "<td>";
-           echo "<img src='" . $row['picture'] . "'>";
+           echo "<img style='height:50px;'src='" . $row['picture'] . "'>";
            echo "</td>";
            echo    "<td>" . $row["sellerid"]. "</td>";
            echo '<td><a href="editInventory.php?id='.$productid.'">Update</a></td>';
            echo '<td><a href="deleteItem.php?id='.$productid.'">Delete</a></td>'; 
        echo "</tr>";
       }
+      echo'<td><a href="addInventory.php"> Add new item</a></td>';
        echo"</table>";
    $connect->close();
    ?>
